@@ -101,7 +101,7 @@ pub async fn install(
 #[instrument(level = "debug", skip(settings))]
 pub async fn uninstall(settings: &impl Settings, namespace: &str, name: &str) -> Result<()> {
     let configuration_file = get_configuration_file(settings).await?;
-    if !configuration_file.exists() {
+    if !configuration_file.exists()
         debug!("No configuration file found: {configuration_file:?}; nothing to uninstall");
         return Ok(());
     }
